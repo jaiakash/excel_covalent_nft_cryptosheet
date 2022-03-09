@@ -49,13 +49,13 @@ function displayNFTData() {
   var len = output.length;
 
   // clear any previous content
-  sheet.getRange(2, 1, 500, 6).clearContent();
+  sheet.getRange(2, 1, 500, 11).clearContent();
 
   // paste in the values
-  sheet.getRange(2, 1, len, 6).setValues(output);
+  sheet.getRange(2, 1, len, 11).setValues(output);
 
   // formatting
-  sheet.getRange(2, 1, 500, 6).setVerticalAlignment("middle");
+  sheet.getRange(2, 1, 500, 11).setVerticalAlignment("middle");
   sheet.getRange(2, 5, 500, 1).setHorizontalAlignment("center");
   sheet.getRange(2, 2, len, 3).setWrap(true);
 }
