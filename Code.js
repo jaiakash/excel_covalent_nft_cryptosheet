@@ -2,36 +2,19 @@
 var sortVar = 1;
 function onOpen() {
   var ui = SpreadsheetApp.getUi();
-  ui.createMenu("NFT Cryptosheet")
+  ui.createMenu("NFT Data")
     .addItem("Get NFT Data", "displayNFTData")
+    .addSeparator()
+    .addSubMenu(
+      ui
+        .createMenu("Sort the data")
+        .addItem("by Name", "sortN")
+        .addItem("by Volume", "sortV")
+        .addItem("by Transaction Count", "sortTC")
+        .addItem("by Market Capital", "sortMC")
+        .addItem("by Max Price", "sortMP")
+    )
     .addToUi();
-  ui.createMenu("Sort the Data")
-    .addItem("by Name", "sortN")
-    .addItem("by Volume", "sortV")
-    .addItem("by Transaction Count", "sortTC")
-    .addItem("by Market Capital", "sortMC")
-    .addItem("by Max Price", "sortMP")
-    .addToUi();
-}
-function sortN() {
-  sortVar = 1;
-  displayNFTData();
-}
-function sortV() {
-  sortVar = 3;
-  displayNFTData();
-}
-function sortMC() {
-  sortVar = 4;
-  displayNFTData();
-}
-function sortTC() {
-  sortVar = 5;
-  displayNFTData();
-}
-function sortMP() {
-  sortVar = 6;
-  displayNFTData();
 }
 
 function callCovalentAPI() {
@@ -96,4 +79,25 @@ function displayNFTData() {
   sheet.getRange(2, 1, 500, 10).setVerticalAlignment("middle");
   sheet.getRange(2, 5, 500, 1).setHorizontalAlignment("center");
   sheet.getRange(2, 2, len, 3).setWrap(true);
+}
+
+function sortN() {
+  sortVar = 1;
+  displayNFTData();
+}
+function sortV() {
+  sortVar = 3;
+  displayNFTData();
+}
+function sortMC() {
+  sortVar = 4;
+  displayNFTData();
+}
+function sortTC() {
+  sortVar = 5;
+  displayNFTData();
+}
+function sortMP() {
+  sortVar = 6;
+  displayNFTData();
 }
